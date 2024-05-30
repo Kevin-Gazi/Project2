@@ -2,10 +2,17 @@ package com.example.project2;
 import java.util.Scanner;
 
 
-public class Vragen implements ISendMessage {
+public class Vragen {
     Scanner scanner = new Scanner(System.in);
 
-    private String vragen;
+    private String vraag;
+
+    private ISendMessage aiComponent;
+
+    public Vragen(ISendMessage aiComponent) {
+        this.aiComponent = aiComponent;
+        this.scanner = new Scanner(System.in);
+    }
 
     public void vragenStellen() {
         // System.out.println("Wat is uw onderwerp?");
@@ -13,11 +20,10 @@ public class Vragen implements ISendMessage {
 
         while (true) {
             // System.out.println("Stel uw vraag (of typ 'stop' om te stoppen):");
-            vragen = scanner.nextLine();
+            vraag = scanner.nextLine();
 
-            if (vragen.equalsIgnoreCase("stop")) {
-                break;
-            }
+            String antwoord = aiComponent.getAntwoord();
+            System.out.println("Antwoord: " + antwoord);
         }
     }
 

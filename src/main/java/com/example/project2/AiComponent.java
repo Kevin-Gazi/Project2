@@ -2,7 +2,7 @@ package com.example.project2;
 
 import java.util.Random;
 
-public class AiComponent {
+public class AiComponent implements ISendMessage{
 
     private String[] Antwoorden = {
             "We zijn momenteel offline.",
