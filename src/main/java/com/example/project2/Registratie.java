@@ -1,10 +1,12 @@
 package com.example.project2;
 
+import javafx.event.ActionEvent;
+
 public abstract class Registratie {
 
-    public final void gebruikerRegistreren() {
+    public final void gebruikerRegistreren(ActionEvent event) {
         if (checkVelden() && checkGebruikersnaam() && checkWachtwoord()) {
-            voegGebruikerToe();
+            voegGebruikerToe(event);
         }
     }
 
@@ -16,5 +18,5 @@ public abstract class Registratie {
 
     abstract boolean checkWachtwoord();
 
-    abstract void voegGebruikerToe();
+    abstract void voegGebruikerToe(ActionEvent event);
 }
