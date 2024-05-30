@@ -5,7 +5,7 @@ import javafx.scene.control.*;
 
 import java.util.ArrayList;
 
-public class RegistratieController {
+public class RegistratieController extends Registratie {
     public ArrayList <Gebruiker> gebruikers;
     @FXML
     private TextField gebruikersnaamRegistratie;
