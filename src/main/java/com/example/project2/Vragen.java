@@ -19,7 +19,7 @@ public class Vragen {
         String onderwerp = scanner.nextLine();
 
         while (true) {
-            // System.out.println("Stel uw vraag (of typ 'stop' om te stoppen):");
+            // System.out.println Stel uw vraag:");
             vraag = scanner.nextLine();
 
             String antwoord = aiComponent.getAntwoord();
