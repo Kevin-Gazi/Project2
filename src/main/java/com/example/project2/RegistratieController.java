@@ -1,12 +1,22 @@
 package com.example.project2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
-public class RegistratieController  {
-    public ArrayList <Gebruiker> gebruikers;
+public class RegistratieController extends Registratie {
+    private GebruikerModel gebruikerModel;
+
     @FXML
     private TextField gebruikersnaamRegistratie;
     @FXML
@@ -15,11 +25,15 @@ public class RegistratieController  {
     private TextField emailRegistratie;
     @FXML
     private Button registratieButton;
+    private Stage stage;
+    private Parent root;
 
-    public RegistratieController(){
-        this.gebruikers = new ArrayList<>();
+    public void setGebruikerModel(GebruikerModel gebruikerModel) {
+        this.gebruikerModel = gebruikerModel;
     }
-    public void gebruikerRegistreren(){
+
+    @Override
+    boolean checkVelden() {
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
         String wachtwoord = wachtwoordRegistratie.getText();
         String email = emailRegistratie.getText();
@@ -28,16 +42,53 @@ public class RegistratieController  {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Vul alle velden in.");
             alert.show();
-            return;
+            return false;
         }
-        Gebruiker gebruiker = new Gebruiker(gebruikersnaam,wachtwoord,email);
-        voegGebruikerToe(gebruiker);
-    }
-    public void voegGebruikerToe(Gebruiker gebruiker){
-        gebruikers.add(gebruiker);
+        return true;
     }
 
+    @Override
+    boolean checkGebruikersnaam() {
+        String gebruikersnaam = gebruikersnaamRegistratie.getText();
+        for (Gebruiker gebruiker : gebruikerModel.getGebruikers()) {
+            if (gebruiker.getGebruikersnaam().equals(gebruikersnaam)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Gebruikersnaam is al in gebruik.");
+                alert.show();
+                return false;
+            }
+        }
+        return true;
+    }
 
+    @Override
+    boolean checkWachtwoord() {
+        String wachtwoord = wachtwoordRegistratie.getText();
+        if (wachtwoord.length() < 6) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Wachtwoord moet minimaal 6 tekens lang zijn.");
+            alert.show();
+            return false;
+        }
+        return true;
+    }
 
+    @Override
+    void voegGebruikerToe(){
+        String gebruikersnaam = gebruikersnaamRegistratie.getText();
+        String wachtwoord = wachtwoordRegistratie.getText();
+        String email = emailRegistratie.getText();
+
+        Gebruiker gebruiker = new Gebruiker(gebruikersnaam, wachtwoord, email);
+        gebruikerModel.voegGebruikerToe(gebruiker);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Gebruiker succesvol geregistreerd.");
+        alert.show();
+    }
+
+    public void Registreren(){
+        super.gebruikerRegistreren();
+    }
 
 }

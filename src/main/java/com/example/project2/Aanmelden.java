@@ -19,5 +19,4 @@ public class Aanmelden {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 }

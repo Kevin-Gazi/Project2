@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: Grey;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: Grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.HelloController">
   <children>
     <SplitPane layoutX="234.0" prefHeight="600.0" prefWidth="300.0" />
     <Button fx:id="loginButton" layoutX="359.0" layoutY="444.0" mnemonicParsing="false" onAction="#switchScene" text="Log in" />
-    <Button fx:id="registrerenButton" layoutX="345.0" layoutY="525.0" mnemonicParsing="false" text="Registreren" />
+    <Button fx:id="registrerenButton" layoutX="345.0" layoutY="525.0" mnemonicParsing="false" onAction="#switchScene" text="Registreren" />
     <PasswordField fx:id="passwordField" layoutX="309.0" layoutY="404.0" promptText="Wachtwoord" />
     <TextField fx:id="gebruikersnaamTextfield" layoutX="309.0" layoutY="370.0" promptText="Gebruikersnaam" />
     <Label layoutX="280.0" layoutY="493.0" text="Nog geen account? Klik op registreren!" />

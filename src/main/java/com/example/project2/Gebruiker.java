@@ -32,18 +32,5 @@ public class Gebruiker {
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
         this.email = email;
-        //this.AICHAT_BESTAND = gebruikersnaam + "_AICHAT.csv";
-        //initBudgetBestand();
     }
-    /*private void initBudgetBestand() {
-        File budgetBestand = new File(this.AICHAT_BESTAND);
-        if (!budgetBestand.exists()) {
-            try {
-                budgetBestand.createNewFile();
-            } catch (IOException var3) {
-                String var10001 = this.gebruikersnaam;
-                System.out.println("Fout bij het aanmaken van het budgetbestand voor gebruiker " + var10001 + ": " + var3.getMessage());
-            }
-        }
-    }     */
 }

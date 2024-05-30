@@ -6,37 +6,49 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloController {
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private Button loginButton;
-    @FXML
-    private Button registrerenButton;
+    private TextField gebruikersnaamTextfield;
     @FXML
     private PasswordField passwordField;
-    @FXML
-    private TextField gebruikersnaamTextfield;
     @FXML
     private Label foutmeldingLabel;
 
     private Stage stage;
     private Parent root;
+    private GebruikerModel gebruikerModel;
+
+    public void setGebruikerModel(GebruikerModel gebruikerModel) {
+        this.gebruikerModel = gebruikerModel;
+    }
 
     public void switchScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("RegistratieScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistratieScene.fxml"));
+        root = loader.load();
+
+        RegistratieController registratieController = loader.getController();
+        registratieController.setGebruikerModel(gebruikerModel);
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
 
+    public void inloggen() {
+        String gebruikersnaam = gebruikersnaamTextfield.getText();
+        String wachtwoord = passwordField.getText();
+
+        for (Gebruiker gebruiker : gebruikerModel.getGebruikers()) {
+            if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
+                foutmeldingLabel.setText("Inloggen succesvol!");
+                return;
+            }
+        }
+        foutmeldingLabel.setText("Ongeldige gebruikersnaam of wachtwoord.");
+    }
 }

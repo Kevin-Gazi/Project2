@@ -1,23 +1,20 @@
 package com.example.project2;
 
-abstract class Registratie {
+public abstract class Registratie {
 
     public final void gebruikerRegistreren() {
-        checkVelden();
-        checkGebruikersnaam();
-        checkWachtwoord();
-        maakGebruikerAan();
-        voegGebruikerToe();
+        if (checkVelden() && checkGebruikersnaam() && checkWachtwoord()) {
+            voegGebruikerToe();
+        }
     }
 
     abstract boolean checkVelden();
 
     abstract boolean checkGebruikersnaam();
 
-    abstract boolean checkWachtwoord();
+    //abstract boolean checkEmail();
 
-    abstract void maakGebruikerAan();
+    abstract boolean checkWachtwoord();
 
     abstract void voegGebruikerToe();
 }
-
