@@ -16,6 +16,4 @@ public class Instellingen {
     public void updateStandaardTaal(){
 
     }
-
-
 }

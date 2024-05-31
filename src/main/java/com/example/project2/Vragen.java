@@ -15,9 +15,6 @@ public class Vragen {
     }
 
     public void vragenStellen() {
-        // System.out.println("Wat is uw onderwerp?");
-        String onderwerp = scanner.nextLine();
-
         while (true) {
             // System.out.println Stel uw vraag:");
             vraag = scanner.nextLine();
