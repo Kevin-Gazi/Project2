@@ -39,13 +39,23 @@ public class HelloController {
         stage.show();
     }
 
-    public void inloggen() {
+    public void inloggen(ActionEvent event) {
+        if (gebruikerModel == null) {
+            foutmeldingLabel.setText("Gebruikersmodel is niet geïnitialiseerd.");
+            return;
+        }
+
         String gebruikersnaam = gebruikersnaamTextfield.getText();
         String wachtwoord = passwordField.getText();
 
         for (Gebruiker gebruiker : gebruikerModel.getGebruikers()) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
                 foutmeldingLabel.setText("Inloggen succesvol!");
+                try {
+                    switchScene(event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return;
             }
         }

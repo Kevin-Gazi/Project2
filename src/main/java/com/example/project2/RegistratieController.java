@@ -74,7 +74,7 @@ public class RegistratieController extends Registratie {
     }
 
     @Override
-    void voegGebruikerToe(ActionEvent event){
+    void voegGebruikerToe(ActionEvent event) {
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
         String wachtwoord = wachtwoordRegistratie.getText();
         String email = emailRegistratie.getText();
@@ -88,7 +88,7 @@ public class RegistratieController extends Registratie {
         try {
             switchToLogin(event);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -97,10 +97,10 @@ public class RegistratieController extends Registratie {
     }
 
     public void switchToLogin(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 }
