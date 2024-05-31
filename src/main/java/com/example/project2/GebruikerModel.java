@@ -3,13 +3,13 @@ package com.example.project2;
 import java.util.ArrayList;
 
 public class GebruikerModel {
-    private ArrayList<Gebruiker> gebruikers;
+    private ArrayList <Gebruiker> gebruikers;
 
     public GebruikerModel() {
         this.gebruikers = new ArrayList<>();
     }
 
-    public ArrayList<Gebruiker> getGebruikers() {
+    public ArrayList <Gebruiker> getGebruikers() {
         return gebruikers;
     }
 

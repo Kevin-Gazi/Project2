@@ -14,8 +14,6 @@ public abstract class Registratie {
 
     abstract boolean checkGebruikersnaam();
 
-    //abstract boolean checkEmail();
-
     abstract boolean checkWachtwoord();
 
     abstract void voegGebruikerToe(ActionEvent event);
