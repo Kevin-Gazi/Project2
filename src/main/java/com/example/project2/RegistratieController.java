@@ -25,6 +25,8 @@ public class RegistratieController extends Registratie {
     private TextField emailRegistratie;
     @FXML
     private Button registratieButton;
+    @FXML
+    private TextField standaardtaalRegistratie;
     private Stage stage;
     private Parent root;
 
@@ -78,8 +80,9 @@ public class RegistratieController extends Registratie {
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
         String wachtwoord = wachtwoordRegistratie.getText();
         String email = emailRegistratie.getText();
+        String standaardtaal = standaardtaalRegistratie.getText();
 
-        Gebruiker gebruiker = new Gebruiker(gebruikersnaam, wachtwoord, email);
+        Gebruiker gebruiker = new Gebruiker(gebruikersnaam, wachtwoord, email, standaardtaal);
         gebruikerModel.voegGebruikerToe(gebruiker);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
