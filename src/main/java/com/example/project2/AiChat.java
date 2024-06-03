@@ -1,9 +1,9 @@
 package com.example.project2;
 
 public class AiChat {
-    String antwoorden;
+    AiComponent antwoorden;
 
-    public String geefAntwoord() {
+    public AiComponent geefAntwoord() {
         return antwoorden;
     }
     public void update () {
