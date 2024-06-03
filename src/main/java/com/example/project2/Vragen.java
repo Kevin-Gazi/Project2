@@ -1,7 +1,6 @@
 package com.example.project2;
 import java.util.Scanner;
 
-
 public class Vragen {
     Scanner scanner = new Scanner(System.in);
 
@@ -14,13 +13,18 @@ public class Vragen {
         this.scanner = new Scanner(System.in);
     }
 
+
     public void vragenStellen() {
         while (true) {
             // System.out.println Stel uw vraag:");
             vraag = scanner.nextLine();
-
-            String antwoord = aiComponent.getAntwoord();
-            System.out.println("Antwoord: " + antwoord);
+            if (Taal.equalsIgnoreCase("Nederlands")) {
+                String NlAntwoord = aiComponent.getAntwoordNederlands();
+                System.out.println("Antwoord: " + NlAntwoord);
+            } else {
+                String EnAntwoord = aiComponent.getAntwoordEngels();
+                System.out.println("Antwoord: " + EnAntwoord);
+            }
         }
     }
 
