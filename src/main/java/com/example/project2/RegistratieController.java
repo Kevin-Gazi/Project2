@@ -13,9 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegistratieController extends Registratie {
-    private GebruikerModel gebruikerModel;
 
     @FXML
     private TextField gebruikersnaamRegistratie;
@@ -27,11 +28,12 @@ public class RegistratieController extends Registratie {
     private Button registratieButton;
     @FXML
     private TextField standaardtaalRegistratie;
-    private Stage stage;
-    private Parent root;
 
-    public void setGebruikerModel(GebruikerModel gebruikerModel) {
-        this.gebruikerModel = gebruikerModel;
+    private Stage stage;
+    private static List<Gebruiker> gebruikers = new ArrayList<>();
+
+    public static List<Gebruiker> getGebruikers() {
+        return gebruikers;
     }
 
     @Override
@@ -52,7 +54,7 @@ public class RegistratieController extends Registratie {
     @Override
     boolean checkGebruikersnaam() {
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
-        for (Gebruiker gebruiker : gebruikerModel.getGebruikers()) {
+        for (Gebruiker gebruiker : gebruikers) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Gebruikersnaam is al in gebruik.");
@@ -77,17 +79,22 @@ public class RegistratieController extends Registratie {
 
     @Override
     void voegGebruikerToe(ActionEvent event) {
+        if (!checkVelden() || !checkGebruikersnaam() || !checkWachtwoord()) {
+            return;
+        }
+
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
         String wachtwoord = wachtwoordRegistratie.getText();
         String email = emailRegistratie.getText();
         String standaardtaal = standaardtaalRegistratie.getText();
 
         Gebruiker gebruiker = new Gebruiker(gebruikersnaam, wachtwoord, email, standaardtaal);
-        gebruikerModel.voegGebruikerToe(gebruiker);
+        gebruikers.add(gebruiker);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Gebruiker succesvol geregistreerd.");
         alert.show();
+
         try {
             switchToLogin(event);
         } catch (IOException e) {
@@ -101,7 +108,8 @@ public class RegistratieController extends Registratie {
 
     public void switchToLogin(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();

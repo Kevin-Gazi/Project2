@@ -14,8 +14,6 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Parent root = fxmlLoader.load();
         HelloController helloController = fxmlLoader.getController();
-        GebruikerModel gebruikerModel = new GebruikerModel();
-        helloController.setGebruikerModel(gebruikerModel);
 
         Scene scene = new Scene(root, 800, 600);
         stage.setTitle("AI-Assistent");

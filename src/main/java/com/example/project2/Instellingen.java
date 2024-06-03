@@ -14,19 +14,4 @@ public class Instellingen {
     @FXML
     private TextField standaardTaalInstellingen;
 
-    public void updateGebruikersnaam(){
-        gebruiker.setGebruikersnaam(gebruikersnaamInstellingen.getText());
-    }
-
-    public void updateGebruikerWachtwoord(){
-        gebruiker.setGebruikersnaam(wachtwoordInstellingen.getText());
-    }
-
-    public void updateGebruikerEmail(){
-        gebruiker.setGebruikersnaam(emailInstellingen.getText());
-    }
-
-    public void updateStandaardTaal(){
-        gebruiker.setGebruikersnaam(standaardTaalInstellingen.getText());
-    }
 }

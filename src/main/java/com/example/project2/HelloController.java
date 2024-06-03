@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,26 +23,26 @@ public class HelloController {
 
     private Stage stage;
     private Parent root;
-    private GebruikerModel gebruikerModel;
-
-    public void setGebruikerModel(GebruikerModel gebruikerModel) {
-        this.gebruikerModel = gebruikerModel;
-    }
 
     public void switchScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistratieScene.fxml"));
         root = loader.load();
 
-        RegistratieController registratieController = loader.getController();
-        registratieController.setGebruikerModel(gebruikerModel);
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
-    public void login (){
-        for(Gebruiker gebruiker : gebruikerModel.getGebruikers()){
-            System.out.println(gebruiker);
+
+    public void login() {
+        String gebruikersnaam = gebruikersnaamTextfield.getText();
+        String wachtwoord = passwordField.getText();
+
+        for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
+            if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
+                foutmeldingLabel.setText("Login succesvol!");
+                //volgende scherm
+            }
         }
+        foutmeldingLabel.setText("Ongeldige gebruikersnaam of wachtwoord.");
     }
 }
