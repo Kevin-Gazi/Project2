@@ -40,7 +40,7 @@ public class HelloController {
         for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
                 foutmeldingLabel.setText("Login succesvol!");
-                //volgende scherm
+                return;
             }
         }
         foutmeldingLabel.setText("Ongeldige gebruikersnaam of wachtwoord.");
