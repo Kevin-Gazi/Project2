@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -16,11 +15,7 @@
         <TextField fx:id="emailRegistratie" layoutX="313.0" layoutY="380.0" promptText="Verander Wachtwoord" />
         <PasswordField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="342.0" promptText="Verander Naam" />
         <Button fx:id="registratieButton1" layoutX="327.0" layoutY="492.0" mnemonicParsing="false" text="Terug naar de Chat" />
-      <Avatar layoutX="349.0" layoutY="114.0" radius="40.0">
-         <image>
-            <Image url="@../../../../../../../../OneDrive/Desktop/Account%20Proj2.png" />
-         </image>
-      </Avatar>
+
       <ChoiceBox layoutX="314.0" layoutY="226.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="S_RESIZE" />
