@@ -2,7 +2,7 @@ package com.example.project2;
 
 import java.util.Random;
 
-public class AiComponent implements ISendMessage{
+public class AiComponent implements ISendMessage, Observer{
 
     private String[] Antwoorden = {
             "We zijn momenteel offline.",
@@ -21,5 +21,9 @@ public class AiComponent implements ISendMessage{
     public String getAntwoord() {
         int index = random.nextInt(Antwoorden.length);
         return Antwoorden[index];
+    }
+
+    public void update(){
+
     }
 }
