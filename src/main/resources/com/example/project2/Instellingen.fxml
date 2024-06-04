@@ -5,8 +5,9 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Instellingen">
     <children>
@@ -14,9 +15,14 @@
         <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Verander Email" />
         <TextField fx:id="emailRegistratie" layoutX="313.0" layoutY="380.0" promptText="Verander Wachtwoord" />
         <PasswordField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="342.0" promptText="Verander Naam" />
-        <Button fx:id="registratieButton1" layoutX="327.0" layoutY="492.0" mnemonicParsing="false" text="Terug naar de Chat" />
+        <Button fx:id="registratieButton1" layoutX="327.0" layoutY="498.0" mnemonicParsing="false" text="Terug naar de Chat" />
+      <Text layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select language/Taal Selecteren" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
 
-      <ChoiceBox layoutX="314.0" layoutY="226.0" prefWidth="150.0">
+      <ChoiceBox fx:id="myChoiceBox" layoutX="314.0" layoutY="226.0" prefWidth="150.0">
          <cursor>
             <Cursor fx:constant="S_RESIZE" />
          </cursor>
