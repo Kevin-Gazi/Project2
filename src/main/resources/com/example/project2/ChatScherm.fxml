@@ -21,7 +21,7 @@
             </tabs>
         </TabPane>
         <Button layoutX="14.0" layoutY="530.0" mnemonicParsing="false" text="+" onAction="#addNewTab" />
-        <TextField fx:id="chatNameInput" layoutX="14.0" layoutY="480.0" prefWidth="250.0" promptText="nieuwe onderwerp" />
+        <TextField fx:id="chatNameInput" layoutX="14.0" layoutY="480.0" prefWidth="250.0" promptText="nieuwe onderwerp " />
     </children>
 </AnchorPane>
 

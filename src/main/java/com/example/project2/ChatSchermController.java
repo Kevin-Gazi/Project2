@@ -5,6 +5,8 @@ import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.Scanner;
+
 public class ChatSchermController {
     @FXML
     private TabPane tabPane;
@@ -60,5 +62,10 @@ public class ChatSchermController {
 
         newTab.setContent(content);
         tabPane.getTabs().add(newTab);
+
+
+
+
+
     }
 }
