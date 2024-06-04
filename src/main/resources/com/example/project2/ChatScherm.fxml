@@ -5,10 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Gesprek">
+<AnchorPane onDragDetected="#ChatNaarInstellingen" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Gesprek">
     <children>
         <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Gebruikersnaam" />
         <TextField fx:id="emailRegistratie" layoutX="313.0" layoutY="380.0" promptText="Email" />
         <PasswordField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="342.0" promptText="Wachtwoord" />
+        <Button fx:id="registrerenButton" layoutX="412.0" layoutY="190.0" mnemonicParsing="false" onAction="#ChatNaarInstellingen" text="Account" />
+
     </children>
 </AnchorPane>

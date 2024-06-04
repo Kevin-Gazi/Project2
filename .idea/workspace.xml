@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="AiChat">
+    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="Switchting scenes: Log in --&gt; Chat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Gesprek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Gesprek.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/RegistratieScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/RegistratieScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717070284582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Switchting scenes: Log in --&gt; Chat">
+      <option name="closed" value="true" />
+      <created>1717491110384</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717491110384</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +133,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AiChat" />
-    <option name="LAST_COMMIT_MESSAGE" value="AiChat" />
+    <MESSAGE value="Switchting scenes: Log in --&gt; Chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switchting scenes: Log in --&gt; Chat" />
   </component>
 </project>

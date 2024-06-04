@@ -33,7 +33,7 @@ public class HelloController {
         stage.show();
     }
 
-    public void switchScene2(ActionEvent event) throws IOException {
+    public void LogINnaarChatScherm(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
         root = loader.load();
 
@@ -50,11 +50,10 @@ public class HelloController {
         for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
                 foutmeldingLabel.setText("Login succesvol!");
-                switchScene2(event); // Pass the event parameter here
+                LogINnaarChatScherm(event);
                 return;
             }
         }
         foutmeldingLabel.setText("Ongeldige gebruikersnaam of wachtwoord.");
     }
-
 }
