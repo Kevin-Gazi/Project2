@@ -15,8 +15,9 @@ public class Vragen {
 
 
     public void vragenStellen() {
+
         while (true) {
-            // System.out.println Stel uw vraag:");
+            System.out.println ("Stel uw vraag: ");
             vraag = scanner.nextLine();
             /*
             if (Taal.equalsIgnoreCase("Nederlands")) {
@@ -28,6 +29,7 @@ public class Vragen {
             }
 
              */
+
         }
     }
 
