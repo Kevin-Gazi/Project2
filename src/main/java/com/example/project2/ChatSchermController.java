@@ -1,10 +1,16 @@
 package com.example.project2;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ChatSchermController {
@@ -12,6 +18,11 @@ public class ChatSchermController {
     private TabPane tabPane;
     @FXML
     private TextField chatNameInput;
+    @FXML
+    private Button instellingenButton;
+    private Stage stage;
+    private Parent root;
+
 
 
     public void sendChat1(ActionEvent event) {
@@ -34,8 +45,6 @@ public class ChatSchermController {
         }
         newTab.setText(chatName);
 
-
-
         TextArea chatArea = new TextArea();
         chatArea.setPrefHeight(400);
         chatArea.setPrefWidth(650);
@@ -48,7 +57,6 @@ public class ChatSchermController {
             chatArea.appendText("Gebruiker: " + chatInput.getText() + "\n");
             chatInput.clear();
         });
-
         AnchorPane content = new AnchorPane();
         content.getChildren().addAll(chatArea, chatInput, sendButton);
         AnchorPane.setTopAnchor(chatArea, 14.0);
@@ -59,13 +67,15 @@ public class ChatSchermController {
         AnchorPane.setRightAnchor(chatInput, 14.0);
         AnchorPane.setBottomAnchor(sendButton, 14.0);
         AnchorPane.setRightAnchor(sendButton, 14.0);
-
         newTab.setContent(content);
         tabPane.getTabs().add(newTab);
+    }
 
-
-
-
-
+    public void switchScene (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
