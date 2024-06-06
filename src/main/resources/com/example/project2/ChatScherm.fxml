@@ -7,25 +7,24 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.project2.ChatSchermController">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.ChatSchermController">
     <children>
-        <TabPane fx:id="tabPane" layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+        <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#addNewTab" prefHeight="35.0" prefWidth="102.0" text="Nieuwe Chat" />
+        <Button fx:id="instellingenButton" layoutX="582.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="35.0" prefWidth="108.0" text="Instellingen" />
+        <TabPane fx:id="tabPane" layoutX="14.0" layoutY="50.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
             <tabs>
                 <Tab text="Chat 1">
                     <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <TextArea fx:id="chatArea1" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="650.0" />
-                                <TextField fx:id="chatInput1" layoutX="14.0" layoutY="420.0" prefWidth="550.0" />
-                                <Button layoutX="570.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendChat1" text="Send" />
-                        <Button fx:id="instellingenButton" layoutX="608.0" layoutY="458.0" mnemonicParsing="false" onAction="#switchScene" text="Instellingen" />
+                                <TextArea fx:id="chatArea1" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="668.0" />
+                                <TextField fx:id="chatInput1" layoutX="14.0" layoutY="432.0" prefHeight="25.0" prefWidth="583.0" />
+                                <Button layoutX="642.0" layoutY="432.0" mnemonicParsing="false" onAction="#sendChat1" text="Stuur" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
             </tabs>
         </TabPane>
-        <Button layoutX="14.0" layoutY="530.0" mnemonicParsing="false" onAction="#addNewTab" text="+" />
-        <TextField fx:id="chatNameInput" layoutX="14.0" layoutY="480.0" prefWidth="250.0" promptText="nieuwe onderwerp " />
     </children>
 </AnchorPane>
