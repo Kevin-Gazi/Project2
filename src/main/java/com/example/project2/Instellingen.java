@@ -92,6 +92,7 @@ public class Instellingen {
         return true;
     }
 
+
     public boolean updateStandaardTaal() {
         String taal = veranderTaal.getText().trim();
 

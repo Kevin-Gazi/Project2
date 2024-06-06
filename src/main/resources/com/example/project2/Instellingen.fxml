@@ -17,6 +17,7 @@
                 <Font size="30.0" />
             </font>
         </Text>
+
         <TextField fx:id="wachtwoordRegistratie" layoutX="314.0" layoutY="378.0" promptText="Huidige Wachtwoord" />
         <TextField fx:id="emailRegistratie" layoutX="314.0" layoutY="340.0" promptText="Verander Email" />
         <TextField fx:id="veranderTaal" layoutX="313.0" layoutY="262.0" promptText="Verander Taal" />

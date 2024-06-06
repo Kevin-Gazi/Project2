@@ -91,6 +91,7 @@ public class RegistratieController extends Registratie {
     }
 
 
+
     @Override
     void voegGebruikerToe(ActionEvent event) {
         if (!checkVelden() || !checkGebruikersnaam() || !checkWachtwoord()) {
