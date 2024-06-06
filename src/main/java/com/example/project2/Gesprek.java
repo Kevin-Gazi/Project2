@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Gesprek {
     private Stage stage;
     private Parent root;
@@ -17,7 +18,6 @@ public class Gesprek {
     private Gebruiker gebruiker;
     private AiComponent aiComponent;
     Scanner scanner = new Scanner(System.in);
-
 
     public void nieuweGesprek(){
         System.out.println("Wat is het onderwerp van het gesprek?");

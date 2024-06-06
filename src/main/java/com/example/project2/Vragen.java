@@ -1,4 +1,5 @@
 package com.example.project2;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Vragen {
@@ -15,10 +16,13 @@ public class Vragen {
 
 
     public void vragenStellen() {
+
+        System.out.println("Nederlands of engels?");
+        String Taal = scanner.nextLine();
+
         while (true) {
-            // System.out.println Stel uw vraag:");
+            System.out.println ("Stel uw vraag: ");
             vraag = scanner.nextLine();
-            /*
             if (Taal.equalsIgnoreCase("Nederlands")) {
                 String NlAntwoord = aiComponent.getAntwoordNederlands();
                 System.out.println("Antwoord: " + NlAntwoord);
@@ -26,9 +30,9 @@ public class Vragen {
                 String EnAntwoord = aiComponent.getAntwoordEngels();
                 System.out.println("Antwoord: " + EnAntwoord);
             }
-
-             */
         }
+
+
     }
 
 }
