@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="Switchting scenes: Chat --&gt; Instellingen">
+    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="chat scherm">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3-6-2024_12_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3-6-2024_12_19__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_14_13__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_14_13__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_08_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_08_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_10_30__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_10_30__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4-6-2024_11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4-6-2024_11_02__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +45,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Kevin-Gazi/Project2.git&quot;,
-    &quot;accountId&quot;: &quot;bce68dec-9358-4771-9074-d23afe8fe85c&quot;
+    &quot;accountId&quot;: &quot;3872e4ba-b319-4365-be24-49ae60ba0bb9&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -105,23 +116,39 @@
       <option name="project" value="LOCAL" />
       <updated>1717070284582</updated>
     </task>
-    <task id="LOCAL-00002" summary="Switchting scenes: Log in --&gt; Chat">
+    <task id="LOCAL-00002" summary="chat scherm">
       <option name="closed" value="true" />
-      <created>1717491110384</created>
+      <created>1717527725950</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1717491110384</updated>
+      <updated>1717527725950</updated>
     </task>
-    <task id="LOCAL-00003" summary="Switchting scenes: Chat --&gt; Instellingen">
+    <task id="LOCAL-00003" summary="chat scherm">
       <option name="closed" value="true" />
-      <created>1717493404917</created>
+      <created>1717528360579</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1717493404917</updated>
+      <updated>1717528360579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="chat scherm">
+      <option name="closed" value="true" />
+      <created>1717528389703</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717528389703</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chat scherm">
+      <option name="closed" value="true" />
+      <created>1717528718879</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717528718879</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,8 +167,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AiChat" />
-    <MESSAGE value="Switchting scenes: Log in --&gt; Chat" />
-    <MESSAGE value="Switchting scenes: Chat --&gt; Instellingen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switchting scenes: Chat --&gt; Instellingen" />
+    <MESSAGE value="chat scherm" />
+    <option name="LAST_COMMIT_MESSAGE" value="chat scherm" />
   </component>
 </project>

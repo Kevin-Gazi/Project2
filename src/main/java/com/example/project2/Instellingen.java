@@ -58,19 +58,26 @@ public class Instellingen implements Initializable {
     }
 
     private void updateFields() {
-        gebruikersnaamRegistratie.setText(gebruiker.getGebruikersnaam());
-        emailRegistratie.setText(gebruiker.getEmail());
-        myChoiceBox.setValue(gebruiker.getStandaardtaal());
+        if (gebruiker != null) {
+            gebruikersnaamRegistratie.setText(gebruiker.getGebruikersnaam());
+            emailRegistratie.setText(gebruiker.getEmail());
+            myChoiceBox.setValue(gebruiker.getStandaardtaal());
+        } else {
+            System.out.println("Gebruiker is null!");
+        }
     }
 
     public void updateGebruikersnaam() {
-        gebruiker.setGebruikersnaam(gebruikersnaamRegistratie.getText());
+        if (gebruiker != null) {
+            gebruiker.setGebruikersnaam(gebruikersnaamRegistratie.getText());
+        }
     }
 
     public void updateGebruikerWachtwoord() {
-        // Je zou hier logica kunnen toevoegen om te controleren of het huidige wachtwoord correct is
         if (wachtwoordRegistratie.getText().equals(wachtwoord2Registratie.getText())) {
-            gebruiker.setWachtwoord(wachtwoordRegistratie.getText());
+            if (gebruiker != null) {
+                gebruiker.setWachtwoord(wachtwoordRegistratie.getText());
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Wachtwoorden komen niet overeen.");
@@ -79,11 +86,15 @@ public class Instellingen implements Initializable {
     }
 
     public void updateGebruikerEmail() {
-        gebruiker.setEmail(emailRegistratie.getText());
+        if (gebruiker != null) {
+            gebruiker.setEmail(emailRegistratie.getText());
+        }
     }
 
     public void updateStandaardTaal() {
-        gebruiker.setStandaardtaal(myChoiceBox.getValue());
+        if (gebruiker != null) {
+            gebruiker.setStandaardtaal(myChoiceBox.getValue());
+        }
     }
 
     public void opslaan(ActionEvent event) {
@@ -99,6 +110,11 @@ public class Instellingen implements Initializable {
     public void switchScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
         root = loader.load();
+
+        // Krijg de controller van de nieuwe scene en stel de gebruiker in
+        ChatSchermController controller = loader.getController();
+        controller.setGebruiker(gebruiker);
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
