@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="Instellingen.java fix">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="bro stfu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -147,7 +142,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717670992172</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Instellingen.java fix">
+      <option name="closed" value="true" />
+      <created>1717677576624</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717677576624</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bro stfu">
+      <option name="closed" value="true" />
+      <created>1717677698669</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717677698669</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +179,7 @@
     <MESSAGE value="AiChat" />
     <MESSAGE value="chat scherm" />
     <MESSAGE value="Instellingen.java fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Instellingen.java fix" />
+    <MESSAGE value="bro stfu" />
+    <option name="LAST_COMMIT_MESSAGE" value="bro stfu" />
   </component>
 </project>
