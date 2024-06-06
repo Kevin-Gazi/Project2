@@ -23,7 +23,14 @@ public class ChatSchermController {
     private TextArea chatArea1;
     @FXML
     private TextField chatInput1;
+    private Stage stage;
+    private Button instellingenbutton;
+    private Parent root;
+    private Gebruiker gebruiker;
 
+    public void setGebruiker (Gebruiker gebruiker) {
+        this.gebruiker = gebruiker;
+    }
     public void sendChat1(ActionEvent event) {
         chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
         chatInput1.clear();
@@ -135,8 +142,12 @@ public class ChatSchermController {
 
     public void switchScene (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
-        Node root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        root = loader.load();
+
+        Instellingen controller = loader.getController();
+        controller.setGebruiker2(gebruiker);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene((Parent) root));
         stage.show();
     }
