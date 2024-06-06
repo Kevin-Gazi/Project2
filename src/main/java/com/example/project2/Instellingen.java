@@ -57,8 +57,10 @@ public class Instellingen implements Initializable {
     }
 
     public boolean updateGebruikersnaam() {
+        System.out.println(gebruiker.getGebruikersnaam());
         if (gebruiker != null) {
             gebruiker.setGebruikersnaam(gebruikersnaamRegistratie.getText());
+            System.out.println(gebruiker.getGebruikersnaam());
         }
         return true;
     }
