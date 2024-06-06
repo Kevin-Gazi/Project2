@@ -18,12 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Instellingen implements Initializable {
+public class Instellingen {
 
     @FXML
     private Label myLabel;
-    @FXML
-    private ChoiceBox<String> myChoiceBox;
     private String[] taal = {"Dutch/Nederlands", "English/Engels"};
     @FXML
     private TextField gebruikersnaamRegistratie;
@@ -37,11 +35,13 @@ public class Instellingen implements Initializable {
     private Button opslaanButton;
     @FXML
     private Button terugButton;
+    @FXML
+    private TextField veranderTaal;
     private Stage stage;
     private Parent root;
     private Gebruiker gebruiker;
 
-    @Override
+    /*@Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         myChoiceBox.getItems().addAll(taal);
         myChoiceBox.setOnAction(this::getTaal);
@@ -50,7 +50,7 @@ public class Instellingen implements Initializable {
     private void getTaal(ActionEvent event) {
         String myTaal = myChoiceBox.getValue();
         myLabel.setText(myTaal);
-    }
+    }*/
 
     public void setGebruiker2(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
@@ -93,10 +93,19 @@ public class Instellingen implements Initializable {
     }
 
     public boolean updateStandaardTaal() {
-        if (gebruiker != null) {
-            gebruiker.setStandaardtaal(myChoiceBox.getValue());
+        String taal = veranderTaal.getText().trim();
+
+        if (taal.equalsIgnoreCase("Nederlands") || taal.equalsIgnoreCase("English")) {
+            if (gebruiker != null) {
+                gebruiker.setStandaardtaal(taal);
+            }
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Voer 'Nederlands' of 'English' in.");
+            alert.show();
+            return false;
         }
-        return true;
     }
 
     public void opslaan(ActionEvent event) {
