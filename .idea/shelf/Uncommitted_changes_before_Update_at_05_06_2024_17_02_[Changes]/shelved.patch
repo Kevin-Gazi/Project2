@@ -1,0 +1,191 @@
+Index: src/main/java/com/example/project2/Gebruiker.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\npublic class Gebruiker {\r\n    private String gebruikersnaam;\r\n    private String wachtwoord;\r\n    private String email;\r\n    private String standaardtaal;\r\n\r\n    public Gebruiker(String gebruikersnaam, String wachtwoord, String email, String standaardtaal) {\r\n        this.gebruikersnaam = gebruikersnaam;\r\n        this.wachtwoord = wachtwoord;\r\n        this.email = email;\r\n        this.standaardtaal = standaardtaal;\r\n    }\r\n\r\n    public String getGebruikersnaam() {\r\n        return gebruikersnaam;\r\n    }\r\n\r\n    public String getWachtwoord() {\r\n        return wachtwoord;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project2/Gebruiker.java b/src/main/java/com/example/project2/Gebruiker.java
+--- a/src/main/java/com/example/project2/Gebruiker.java	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/src/main/java/com/example/project2/Gebruiker.java	(date 1717409466755)
+@@ -20,4 +20,20 @@
+     public String getWachtwoord() {
+         return wachtwoord;
+     }
++
++    public void setGebruikersnaam(String gebruikersnaam) {
++        this.gebruikersnaam = gebruikersnaam;
++    }
++
++    public void setWachtwoord(String wachtwoord) {
++        this.wachtwoord = wachtwoord;
++    }
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++
++    public void setStandaardtaal(String standaardtaal) {
++        this.standaardtaal = standaardtaal;
++    }
+ }
+Index: src/main/java/com/example/project2/Instellingen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.TextField;\r\n\r\npublic class Instellingen {\r\n    private Gebruiker gebruiker;\r\n    @FXML\r\n    private TextField gebruikersnaamInstellingen;\r\n    @FXML\r\n    private TextField wachtwoordInstellingen;\r\n    @FXML\r\n    private TextField emailInstellingen;\r\n    @FXML\r\n    private TextField standaardTaalInstellingen;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project2/Instellingen.java b/src/main/java/com/example/project2/Instellingen.java
+--- a/src/main/java/com/example/project2/Instellingen.java	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/src/main/java/com/example/project2/Instellingen.java	(date 1717409466749)
+@@ -14,4 +14,19 @@
+     @FXML
+     private TextField standaardTaalInstellingen;
+ 
++    public void updateGebruikersnaam(){
++        gebruiker.setGebruikersnaam(gebruikersnaamInstellingen.getText());
++    }
++
++    public void updateGebruikerWachtwoord(){
++        gebruiker.setWachtwoord(wachtwoordInstellingen.getText());
++    }
++
++    public void updateGebruikerEmail(){
++        gebruiker.setEmail(emailInstellingen.getText());
++    }
++
++    public void updateStandaardTaal(){
++        gebruiker.setStandaardtaal(standaardTaalInstellingen.getText());
++    }
+ }
+Index: src/main/java/com/example/project2/Registratie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\nimport javafx.event.ActionEvent;\r\n\r\npublic abstract class Registratie {\r\n\r\n    public final void gebruikerRegistreren(ActionEvent event) {\r\n        if (checkVelden() && checkGebruikersnaam() && checkWachtwoord()) {\r\n            voegGebruikerToe(event);\r\n        }\r\n    }\r\n\r\n    abstract boolean checkVelden();\r\n\r\n    abstract boolean checkGebruikersnaam();\r\n\r\n    abstract boolean checkWachtwoord();\r\n\r\n    abstract void voegGebruikerToe(ActionEvent event);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project2/Registratie.java b/src/main/java/com/example/project2/Registratie.java
+--- a/src/main/java/com/example/project2/Registratie.java	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/src/main/java/com/example/project2/Registratie.java	(date 1717411302393)
+@@ -5,16 +5,13 @@
+ public abstract class Registratie {
+ 
+     public final void gebruikerRegistreren(ActionEvent event) {
+-        if (checkVelden() && checkGebruikersnaam() && checkWachtwoord()) {
++        if (checkVelden() && checkGebruikersnaam() && checkWachtwoord() && checkStandaardTaal()) {
+             voegGebruikerToe(event);
+         }
+     }
+-
+     abstract boolean checkVelden();
+-
+     abstract boolean checkGebruikersnaam();
+-
+     abstract boolean checkWachtwoord();
+-
++    abstract boolean checkStandaardTaal();
+     abstract void voegGebruikerToe(ActionEvent event);
+ }
+Index: src/main/java/com/example/project2/RegistratieController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Alert;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class RegistratieController extends Registratie {\r\n\r\n    @FXML\r\n    private TextField gebruikersnaamRegistratie;\r\n    @FXML\r\n    private PasswordField wachtwoordRegistratie;\r\n    @FXML\r\n    private TextField emailRegistratie;\r\n    @FXML\r\n    private Button registratieButton;\r\n    @FXML\r\n    private TextField standaardtaalRegistratie;\r\n\r\n    private Stage stage;\r\n    private static List<Gebruiker> gebruikers = new ArrayList<>();\r\n\r\n    public static List<Gebruiker> getGebruikers() {\r\n        return gebruikers;\r\n    }\r\n\r\n    @Override\r\n    boolean checkVelden() {\r\n        String gebruikersnaam = gebruikersnaamRegistratie.getText();\r\n        String wachtwoord = wachtwoordRegistratie.getText();\r\n        String email = emailRegistratie.getText();\r\n\r\n        if (gebruikersnaam.isEmpty() || wachtwoord.isEmpty() || email.isEmpty()) {\r\n            Alert alert = new Alert(Alert.AlertType.ERROR);\r\n            alert.setContentText(\"Vul alle velden in.\");\r\n            alert.show();\r\n            return false;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    boolean checkGebruikersnaam() {\r\n        String gebruikersnaam = gebruikersnaamRegistratie.getText();\r\n        for (Gebruiker gebruiker : gebruikers) {\r\n            if (gebruiker.getGebruikersnaam().equals(gebruikersnaam)) {\r\n                Alert alert = new Alert(Alert.AlertType.ERROR);\r\n                alert.setContentText(\"Gebruikersnaam is al in gebruik.\");\r\n                alert.show();\r\n                return false;\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    boolean checkWachtwoord() {\r\n        String wachtwoord = wachtwoordRegistratie.getText();\r\n        if (wachtwoord.length() < 6) {\r\n            Alert alert = new Alert(Alert.AlertType.ERROR);\r\n            alert.setContentText(\"Wachtwoord moet minimaal 6 tekens lang zijn.\");\r\n            alert.show();\r\n            return false;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    void voegGebruikerToe(ActionEvent event) {\r\n        if (!checkVelden() || !checkGebruikersnaam() || !checkWachtwoord()) {\r\n            return;\r\n        }\r\n\r\n        String gebruikersnaam = gebruikersnaamRegistratie.getText();\r\n        String wachtwoord = wachtwoordRegistratie.getText();\r\n        String email = emailRegistratie.getText();\r\n        String standaardtaal = standaardtaalRegistratie.getText();\r\n\r\n        Gebruiker gebruiker = new Gebruiker(gebruikersnaam, wachtwoord, email, standaardtaal);\r\n        gebruikers.add(gebruiker);\r\n\r\n        Alert alert = new Alert(Alert.AlertType.INFORMATION);\r\n        alert.setContentText(\"Gebruiker succesvol geregistreerd.\");\r\n        alert.show();\r\n\r\n        try {\r\n            switchToLogin(event);\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n\r\n    public void Registreren(ActionEvent event){\r\n        super.gebruikerRegistreren(event);\r\n    }\r\n\r\n    public void switchToLogin(ActionEvent event) throws IOException {\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"hello-view.fxml\"));\r\n        Parent root = loader.load();\r\n\r\n        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();\r\n        stage.setScene(new Scene(root));\r\n        stage.show();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project2/RegistratieController.java b/src/main/java/com/example/project2/RegistratieController.java
+--- a/src/main/java/com/example/project2/RegistratieController.java	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/src/main/java/com/example/project2/RegistratieController.java	(date 1717410629718)
+@@ -41,8 +41,9 @@
+         String gebruikersnaam = gebruikersnaamRegistratie.getText();
+         String wachtwoord = wachtwoordRegistratie.getText();
+         String email = emailRegistratie.getText();
++        String standaardTaal = standaardtaalRegistratie.getText();
+ 
+-        if (gebruikersnaam.isEmpty() || wachtwoord.isEmpty() || email.isEmpty()) {
++        if (gebruikersnaam.isEmpty() || wachtwoord.isEmpty() || email.isEmpty() || standaardTaal.isEmpty()) {
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+             alert.setContentText("Vul alle velden in.");
+             alert.show();
+@@ -77,6 +78,19 @@
+         return true;
+     }
+ 
++    @Override
++    boolean checkStandaardTaal(){
++        String standaardTaal = standaardtaalRegistratie.getText();
++        if(!standaardTaal.equalsIgnoreCase("Nederlands") || !standaardTaal.equalsIgnoreCase("English")){
++            Alert alert = new Alert(Alert.AlertType.ERROR);
++            alert.setContentText("Voer 'nederlands' of 'english' in.");
++            alert.show();
++            return false;
++        }
++        return true;
++    }
++
++
+     @Override
+     void voegGebruikerToe(ActionEvent event) {
+         if (!checkVelden() || !checkGebruikersnaam() || !checkWachtwoord()) {
+@@ -102,6 +116,7 @@
+         }
+     }
+ 
++
+     public void Registreren(ActionEvent event){
+         super.gebruikerRegistreren(event);
+     }
+Index: src/main/java/com/example/project2/HelloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloController {\r\n    @FXML\r\n    private TextField gebruikersnaamTextfield;\r\n    @FXML\r\n    private PasswordField passwordField;\r\n    @FXML\r\n    private Label foutmeldingLabel;\r\n\r\n    private Stage stage;\r\n    private Parent root;\r\n\r\n    public void switchScene(ActionEvent event) throws IOException {\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"RegistratieScene.fxml\"));\r\n        root = loader.load();\r\n\r\n        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();\r\n        stage.setScene(new Scene(root));\r\n        stage.show();\r\n    }\r\n\r\n    public void login() {\r\n        String gebruikersnaam = gebruikersnaamTextfield.getText();\r\n        String wachtwoord = passwordField.getText();\r\n\r\n        for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {\r\n            if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {\r\n                foutmeldingLabel.setText(\"Login succesvol!\");\r\n                //volgende scherm\r\n            }\r\n        }\r\n        foutmeldingLabel.setText(\"Ongeldige gebruikersnaam of wachtwoord.\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/project2/HelloController.java b/src/main/java/com/example/project2/HelloController.java
+--- a/src/main/java/com/example/project2/HelloController.java	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/src/main/java/com/example/project2/HelloController.java	(date 1717410629723)
+@@ -39,8 +39,11 @@
+ 
+         for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
+             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
++                System.out.println(gebruiker.getGebruikersnaam());
++                System.out.println(gebruikersnaam);
+                 foutmeldingLabel.setText("Login succesvol!");
+-                //volgende scherm
++                return;
++
+             }
+         }
+         foutmeldingLabel.setText("Ongeldige gebruikersnaam of wachtwoord.");
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"98263704-4df8-47e5-b02f-c55516887e92\" name=\"Changes\" comment=\"AiChat\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_34__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_34__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_36__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_36__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_32__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_32__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/Aanmelden.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/GebruikerModel.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Jaouadjj&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Kevin-Gazi/Project2.git&quot;,\r\n    &quot;accountId&quot;: &quot;5d0123b0-118d-43fd-b609-a6ef0f27ba87&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2h2uCl4j6YB1snW7PoXAisPBVlO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.project2.HelloApplication\" />\r\n      <module name=\"Project2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.example.project2.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HelloApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"98263704-4df8-47e5-b02f-c55516887e92\" name=\"Changes\" comment=\"\" />\r\n      <created>1716804367187</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716804367187</updated>\r\n      <workItem from=\"1716804368181\" duration=\"323000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"AiChat\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717070284582</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1717070284582</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"AiChat\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"AiChat\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b78b74b9529271a461de2103c5b8734ea33f4be2)
++++ b/.idea/workspace.xml	(date 1717410630118)
+@@ -5,17 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="AiChat">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_34__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_13_36__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_13_32__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Aanmelden.java" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/GebruikerModel.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />

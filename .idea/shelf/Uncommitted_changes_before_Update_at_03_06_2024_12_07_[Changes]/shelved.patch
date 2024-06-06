@@ -1,0 +1,33 @@
+Index: src/main/java/com/example/project2/GebruikerModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.project2;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class GebruikerModel {\r\n    private ArrayList <Gebruiker> gebruikers;\r\n\r\n    public GebruikerModel() {\r\n        this.gebruikers = new ArrayList<>();\r\n    }\r\n\r\n    public ArrayList <Gebruiker> getGebruikers() {\r\n        return gebruikers;\r\n    }\r\n\r\n    public void voegGebruikerToe(Gebruiker gebruiker) {\r\n        gebruikers.add(gebruiker);\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/example/project2/GebruikerModel.java b/src/main/java/com/example/project2/GebruikerModel.java
+--- a/src/main/java/com/example/project2/GebruikerModel.java	
++++ b/src/main/java/com/example/project2/GebruikerModel.java	
+@@ -3,17 +3,22 @@
+ import java.util.ArrayList;
+ 
+ public class GebruikerModel {
+-    private ArrayList <Gebruiker> gebruikers;
++    public ArrayList <Gebruiker> gebruikers;
+ 
+     public GebruikerModel() {
+         this.gebruikers = new ArrayList<>();
+     }
+ 
+-    public ArrayList <Gebruiker> getGebruikers() {
++    public ArrayList<Gebruiker> getGebruikers() {
+         return gebruikers;
+     }
+ 
+     public void voegGebruikerToe(Gebruiker gebruiker) {
+         gebruikers.add(gebruiker);
+     }
++    public void printGebruikers(){
++        for (Gebruiker gebruiker : gebruikers){
++            System.out.println(gebruiker);
++        }
++    }
+ }
