@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.HelloController">
   <children>
     <Button fx:id="loginButton" layoutX="629.0" layoutY="420.0" mnemonicParsing="false" onAction="#login" text="Log in" />
-    <Button fx:id="registrerenButton" layoutX="615.0" layoutY="501.0" mnemonicParsing="false" onAction="#switchScene" text="Registreren" />
+    <Button fx:id="registrerenButton" layoutX="615.0" layoutY="501.0" mnemonicParsing="false" onAction="#switchScene1" text="Registreren" />
     <PasswordField fx:id="passwordField" layoutX="579.0" layoutY="376.0" promptText="Wachtwoord" />
     <TextField fx:id="gebruikersnaamTextfield" layoutX="579.0" layoutY="337.0" promptText="Gebruikersnaam" />
     <Label layoutX="550.0" layoutY="460.0" text="Nog geen account? Klik op registreren!" />

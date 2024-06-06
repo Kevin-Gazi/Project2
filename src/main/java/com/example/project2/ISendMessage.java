@@ -1,5 +1,7 @@
 package com.example.project2;
 
 public interface ISendMessage {
-    String getAntwoord();
+    String getAntwoordNederlands();
+    String getAntwoordEngels();
+
 }

@@ -24,7 +24,7 @@ public class HelloController {
     private Stage stage;
     private Parent root;
 
-    public void switchScene(ActionEvent event) throws IOException {
+    public void switchScene1(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("RegistratieScene.fxml"));
         root = loader.load();
 
@@ -33,13 +33,24 @@ public class HelloController {
         stage.show();
     }
 
-    public void login() {
+    public void LogINnaarChatScherm(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+
+    public void login(ActionEvent event) throws IOException {
         String gebruikersnaam = gebruikersnaamTextfield.getText();
         String wachtwoord = passwordField.getText();
 
         for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
                 foutmeldingLabel.setText("Login succesvol!");
+                LogINnaarChatScherm(event);
                 return;
             }
         }

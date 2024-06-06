@@ -20,4 +20,28 @@ public class Gebruiker {
     public String getWachtwoord() {
         return wachtwoord;
     }
+
+    public void setGebruikersnaam(String gebruikersnaam) {
+        this.gebruikersnaam = gebruikersnaam;
+    }
+
+    public void setWachtwoord(String wachtwoord) {
+        this.wachtwoord = wachtwoord;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setStandaardtaal(String standaardtaal) {
+        this.standaardtaal = standaardtaal;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getStandaardtaal() {
+        return standaardtaal;
+    }
 }

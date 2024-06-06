@@ -1,12 +1,11 @@
 package com.example.project2;
 
-public class AiChat implements Observer{
-    String antwoorden;
+public class AiChat {
+    AiComponent antwoorden;
 
-    public String geefAntwoord() {
+    public AiComponent geefAntwoord() {
         return antwoorden;
     }
-
     public void update () {
 
     }

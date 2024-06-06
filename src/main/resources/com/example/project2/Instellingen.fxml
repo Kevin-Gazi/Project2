@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Instellingen">
     <children>
-        <Button fx:id="registratieButton" layoutX="350.0" layoutY="454.0" mnemonicParsing="false" text="Registreren" />
-        <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Gebruikersnaam" />
-        <TextField fx:id="emailRegistratie" layoutX="313.0" layoutY="380.0" promptText="Email" />
-        <PasswordField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="342.0" promptText="Wachtwoord" />
-        <Button fx:id="registratieButton1" layoutX="364.0" layoutY="496.0" mnemonicParsing="false" text="Terug" />
+        <Button fx:id="opslaanButton" layoutX="359.0" layoutY="453.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
+        <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Verander Naam" />
+        <TextField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="415.0" promptText="Verander Wachtwoord" />
+        <Button fx:id="terugButton" layoutX="330.0" layoutY="498.0" mnemonicParsing="false" onAction="#switchScene" text="Terug naar de Chat" />
+      <Text layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select language/Taal Selecteren" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+
+      <ChoiceBox fx:id="myChoiceBox" layoutX="314.0" layoutY="226.0" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="S_RESIZE" />
+         </cursor>
+      </ChoiceBox>
+      <TextField fx:id="wachtwoord2Registratie" layoutX="314.0" layoutY="378.0" promptText="Huidige Wachtwoord" />
+      <TextField fx:id="emailRegistratie" layoutX="314.0" layoutY="340.0" promptText="Verander Email" />
     </children>
 </AnchorPane>

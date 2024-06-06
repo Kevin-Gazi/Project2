@@ -41,8 +41,9 @@ public class RegistratieController extends Registratie {
         String gebruikersnaam = gebruikersnaamRegistratie.getText();
         String wachtwoord = wachtwoordRegistratie.getText();
         String email = emailRegistratie.getText();
+        String standaardTaal = standaardtaalRegistratie.getText();
 
-        if (gebruikersnaam.isEmpty() || wachtwoord.isEmpty() || email.isEmpty()) {
+        if (gebruikersnaam.isEmpty() || wachtwoord.isEmpty() || email.isEmpty() || standaardTaal.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Vul alle velden in.");
             alert.show();
@@ -78,6 +79,19 @@ public class RegistratieController extends Registratie {
     }
 
     @Override
+    boolean checkStandaardTaal() {
+        String standaardTaal = standaardtaalRegistratie.getText();
+        if (!standaardTaal.equalsIgnoreCase("Nederlands") && !standaardTaal.equalsIgnoreCase("English")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Voer 'Nederlands' of 'English' in.");
+            alert.show();
+            return false;
+        }
+        return true;
+    }
+
+
+    @Override
     void voegGebruikerToe(ActionEvent event) {
         if (!checkVelden() || !checkGebruikersnaam() || !checkWachtwoord()) {
             return;
@@ -101,6 +115,7 @@ public class RegistratieController extends Registratie {
             throw new RuntimeException(e);
         }
     }
+
 
     public void Registreren(ActionEvent event){
         super.gebruikerRegistreren(event);
