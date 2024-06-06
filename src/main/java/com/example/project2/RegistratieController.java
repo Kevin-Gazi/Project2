@@ -122,6 +122,9 @@ public class RegistratieController extends Registratie {
     }
 
     public void switchToLogin(ActionEvent event) throws IOException {
+
+        Gebruiker gebruiker = new Gebruiker("a", "aaaaaa", "a", "nederlands");
+        gebruikers.add(gebruiker);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
 

@@ -22,9 +22,8 @@ public class ChatSchermController {
     private Button instellingenButton;
     private Stage stage;
     private Parent root;
-    private Gebruiker gebruiker; // Add this line
+    private Gebruiker gebruiker;
 
-    // Add this method
     public void setGebruiker(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
     }
@@ -75,6 +74,10 @@ public class ChatSchermController {
     public void switchScene (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         root = loader.load();
+
+        Instellingen controller = loader.getController();
+        controller.setGebruiker2(gebruiker); // De gebruiker instellen
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
