@@ -12,13 +12,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4-6-2024_11_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4-6-2024_11_02__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Registratie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/RegistratieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/ChatScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

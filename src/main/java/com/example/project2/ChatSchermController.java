@@ -22,8 +22,12 @@ public class ChatSchermController {
     private Button instellingenButton;
     private Stage stage;
     private Parent root;
+    private Gebruiker gebruiker; // Add this line
 
-
+    // Add this method
+    public void setGebruiker(Gebruiker gebruiker) {
+        this.gebruiker = gebruiker;
+    }
 
     public void sendChat1(ActionEvent event) {
         TextArea chatArea = (TextArea) tabPane.getTabs().get(0).getContent().lookup("#chatArea1");
@@ -32,12 +36,9 @@ public class ChatSchermController {
         chatInput.clear();
     }
 
-
-
     public void addNewTab(ActionEvent event) {
         int tabCount = tabPane.getTabs().size();
         Tab newTab = new Tab("Chat " + (tabCount + 1));
-
 
         String chatName = chatNameInput.getText();
         if (chatName.isEmpty()) {
