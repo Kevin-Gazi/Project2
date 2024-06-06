@@ -33,11 +33,14 @@ public class HelloController {
         stage.show();
     }
 
-    public void LogINnaarChatScherm(ActionEvent event) throws IOException {
+    public void LogINnaarChatScherm(ActionEvent event, Gebruiker gebruiker) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ChatSchermController controller = loader.getController();
+        controller.setGebruiker(gebruiker); // De gebruiker instellen
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -50,7 +53,7 @@ public class HelloController {
         for (Gebruiker gebruiker : RegistratieController.getGebruikers()) {
             if (gebruiker.getGebruikersnaam().equals(gebruikersnaam) && gebruiker.getWachtwoord().equals(wachtwoord)) {
                 foutmeldingLabel.setText("Login succesvol!");
-                LogINnaarChatScherm(event);
+                LogINnaarChatScherm(event, gebruiker);
                 return;
             }
         }

@@ -24,7 +24,6 @@ public class Instellingen implements Initializable {
     private Label myLabel;
     @FXML
     private ChoiceBox<String> myChoiceBox;
-    private Gebruiker gebruiker;
     private String[] taal = {"Dutch/Nederlands", "English/Engels"};
     @FXML
     private TextField gebruikersnaamRegistratie;
@@ -40,6 +39,7 @@ public class Instellingen implements Initializable {
     private Button terugButton;
     private Stage stage;
     private Parent root;
+    private Gebruiker gebruiker;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -52,68 +52,64 @@ public class Instellingen implements Initializable {
         myLabel.setText(myTaal);
     }
 
-    public void setGebruiker(Gebruiker gebruiker) {
+    public void setGebruiker2(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
-        updateFields();
     }
 
-    private void updateFields() {
-        if (gebruiker != null) {
-            gebruikersnaamRegistratie.setText(gebruiker.getGebruikersnaam());
-            emailRegistratie.setText(gebruiker.getEmail());
-            myChoiceBox.setValue(gebruiker.getStandaardtaal());
-        } else {
-            System.out.println("Gebruiker is null!");
-        }
-    }
-
-    public void updateGebruikersnaam() {
+    public boolean updateGebruikersnaam() {
         if (gebruiker != null) {
             gebruiker.setGebruikersnaam(gebruikersnaamRegistratie.getText());
         }
+        return true;
     }
 
-    public void updateGebruikerWachtwoord() {
-        if (wachtwoordRegistratie.getText().equals(wachtwoord2Registratie.getText())) {
-            if (gebruiker != null) {
-                gebruiker.setWachtwoord(wachtwoordRegistratie.getText());
-            }
-        } else {
+    public boolean updateGebruikerWachtwoord() {
+        boolean a = false;
+        String wachtwoord = wachtwoordRegistratie.getText();
+        String wachtwoord2 = wachtwoord2Registratie.getText();
+
+        if (wachtwoord.length() < 6) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Wachtwoord moet minimaal 6 karakters lang zijn.");
+            alert.show();
+        } else if (!wachtwoord.equals(wachtwoord2)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Wachtwoorden komen niet overeen.");
             alert.show();
+        } else {
+            if (gebruiker != null) {
+                gebruiker.setWachtwoord(wachtwoord);
+                a = true;
+            }
         }
+        return a;
     }
 
-    public void updateGebruikerEmail() {
+    public boolean updateGebruikerEmail() {
         if (gebruiker != null) {
             gebruiker.setEmail(emailRegistratie.getText());
         }
+        return true;
     }
 
-    public void updateStandaardTaal() {
+    public boolean updateStandaardTaal() {
         if (gebruiker != null) {
             gebruiker.setStandaardtaal(myChoiceBox.getValue());
         }
+        return true;
     }
 
     public void opslaan(ActionEvent event) {
-        updateGebruikersnaam();
-        updateGebruikerWachtwoord();
-        updateGebruikerEmail();
-        updateStandaardTaal();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Instellingen succesvol opgeslagen.");
-        alert.show();
+        if(updateGebruikersnaam() && updateGebruikerWachtwoord() && updateGebruikerEmail() && updateStandaardTaal()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Instellingen succesvol opgeslagen.");
+            alert.show();
+        }
     }
 
     public void switchScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
         root = loader.load();
-
-        // Krijg de controller van de nieuwe scene en stel de gebruiker in
-        ChatSchermController controller = loader.getController();
-        controller.setGebruiker(gebruiker);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
