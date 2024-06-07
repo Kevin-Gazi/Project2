@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)">
+    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716804367187</updated>
       <workItem from="1716804368181" duration="323000" />
-      <workItem from="1717745176943" duration="6020000" />
+      <workItem from="1717745176943" duration="8030000" />
     </task>
     <task id="LOCAL-00001" summary="AiChat">
       <option name="closed" value="true" />
@@ -167,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717750230568</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)2.0">
+      <option name="closed" value="true" />
+      <created>1717751276997</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717751276997</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +198,7 @@
     <MESSAGE value="chat scherm" />
     <MESSAGE value="bro stfu" />
     <MESSAGE value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)" />
-    <option name="LAST_COMMIT_MESSAGE" value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)" />
+    <MESSAGE value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)2.0" />
   </component>
 </project>

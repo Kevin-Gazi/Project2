@@ -33,7 +33,6 @@ public class ChatSchermController extends ResponseManager {
     private Gebruiker gebruiker;
 
     private String taal = "Nederlands";
-    private String taal = "Nederlands"; // Default language
 private ISendMessage antwoordGenerator = new AiComponent();
 
     private String[] AntwoordenNederlands = {
@@ -76,17 +75,14 @@ private ISendMessage antwoordGenerator = new AiComponent();
 
         long startTime = System.currentTimeMillis();
 
-        chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
+        chatArea1.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput1.getText() + "\n");
         if (gebruiker == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Gebruiker is niet ingesteld.");
             alert.show();
             return;
         }
-        chatArea1.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput1.getText() + "\n");
-        chatInput1.clear();
 
-        // AI Response
         String aiResponse;
         if (taal.equals("Nederlands")) {
             aiResponse = antwoordGenerator.getAntwoordNederlands();
@@ -169,7 +165,6 @@ private ISendMessage antwoordGenerator = new AiComponent();
 
         newTab.setContent(content);
 
-        // Add the context menu to the tab
         addContextMenuToTab(newTab);
 
         tabPane.getTabs().add(newTab);
@@ -190,12 +185,10 @@ private ISendMessage antwoordGenerator = new AiComponent();
     }
 
     private void showRenameDialog(Tab tab) {
-        // Create the dialog
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.setTitle("Wijzig onderwerp");
 
-        // Create input field
         TextField chatNameField = new TextField(tab.getText());
         chatNameField.setPromptText("Nieuw onderwerp");
 
