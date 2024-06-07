@@ -21,9 +21,11 @@ public class Vragen {
         String Taal = scanner.nextLine();
 
         while (true) {
-            System.out.println ("Stel uw vraag: ");
+            System.out.println("Stel uw vraag: ");
             vraag = scanner.nextLine();
-            if (Taal.equalsIgnoreCase("Nederlands")) {
+
+
+            if (Taal.equalsIgnoreCase("nederlands")) {
                 String NlAntwoord = aiComponent.getAntwoordNederlands();
                 System.out.println("Antwoord: " + NlAntwoord);
             } else {
@@ -32,7 +34,5 @@ public class Vragen {
             }
         }
 
-
     }
-
 }

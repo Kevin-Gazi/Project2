@@ -11,6 +11,8 @@
     <children>
         <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#addNewTab" prefHeight="35.0" prefWidth="102.0" text="Nieuwe Chat" />
         <Button fx:id="instellingenButton" layoutX="582.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="35.0" prefWidth="108.0" text="Instellingen" />
+        <Button layoutX="120.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchLanguageToDutch" text="Nederlands" />
+        <Button layoutX="230.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchLanguageToEnglish" text="Engels" />
         <TabPane fx:id="tabPane" layoutX="14.0" layoutY="50.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
             <tabs>
                 <Tab text="Chat 1">
