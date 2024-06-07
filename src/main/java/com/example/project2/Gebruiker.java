@@ -4,13 +4,12 @@ public class Gebruiker {
     private String gebruikersnaam;
     private String wachtwoord;
     private String email;
-    private String standaardtaal;
+
 
     public Gebruiker(String gebruikersnaam, String wachtwoord, String email, String standaardtaal) {
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
         this.email = email;
-        this.standaardtaal = standaardtaal;
     }
 
     public String getGebruikersnaam() {
@@ -33,15 +32,9 @@ public class Gebruiker {
         this.email = email;
     }
 
-    public void setStandaardtaal(String standaardtaal) {
-        this.standaardtaal = standaardtaal;
-    }
 
     public String getEmail() {
         return email;
     }
 
-    public String getStandaardtaal() {
-        return standaardtaal;
-    }
 }

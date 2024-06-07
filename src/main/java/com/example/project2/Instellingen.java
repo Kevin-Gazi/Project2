@@ -3,26 +3,18 @@ package com.example.project2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Instellingen {
 
-    @FXML
-    private Label myLabel;
-    private String[] taal = {"Dutch/Nederlands", "English/Engels"};
     @FXML
     private TextField gebruikersnaamRegistratie;
     @FXML
@@ -35,32 +27,21 @@ public class Instellingen {
     private Button opslaanButton;
     @FXML
     private Button terugButton;
-    @FXML
-    private TextField veranderTaal;
     private Stage stage;
     private Parent root;
     private Gebruiker gebruiker;
 
-    /*@Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        myChoiceBox.getItems().addAll(taal);
-        myChoiceBox.setOnAction(this::getTaal);
-    }
-
-    private void getTaal(ActionEvent event) {
-        String myTaal = myChoiceBox.getValue();
-        myLabel.setText(myTaal);
-    }*/
-
     public void setGebruiker2(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
+        if (gebruiker != null) {
+            gebruikersnaamRegistratie.setText(gebruiker.getGebruikersnaam());
+            emailRegistratie.setText(gebruiker.getEmail());
+        }
     }
 
     public boolean updateGebruikersnaam() {
-        System.out.println(gebruiker.getGebruikersnaam());
         if (gebruiker != null) {
             gebruiker.setGebruikersnaam(gebruikersnaamRegistratie.getText());
-            System.out.println(gebruiker.getGebruikersnaam());
         }
         return true;
     }
@@ -94,25 +75,8 @@ public class Instellingen {
         return true;
     }
 
-
-    public boolean updateStandaardTaal() {
-        String taal = veranderTaal.getText().trim();
-
-        if (taal.equalsIgnoreCase("Nederlands") || taal.equalsIgnoreCase("English")) {
-            if (gebruiker != null) {
-                gebruiker.setStandaardtaal(taal);
-            }
-            return true;
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Voer 'Nederlands' of 'English' in.");
-            alert.show();
-            return false;
-        }
-    }
-
     public void opslaan(ActionEvent event) {
-        if(updateGebruikersnaam() && updateGebruikerWachtwoord() && updateGebruikerEmail() && updateStandaardTaal()) {
+        if (updateGebruikersnaam() && updateGebruikerWachtwoord() && updateGebruikerEmail()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Instellingen succesvol opgeslagen.");
             alert.show();
@@ -122,6 +86,9 @@ public class Instellingen {
     public void switchScene(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatScherm.fxml"));
         root = loader.load();
+
+        ChatSchermController chatController = loader.getController();
+        chatController.setGebruiker(this.gebruiker);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

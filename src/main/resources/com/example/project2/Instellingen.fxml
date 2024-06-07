@@ -10,16 +10,15 @@
     <children>
         <Button fx:id="opslaanButton" layoutX="359.0" layoutY="453.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
         <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Verander Naam" />
-        <TextField fx:id="wachtwoord2Registratie" layoutX="313.0" layoutY="415.0" promptText="Verander Wachtwoord" />
+        <TextField fx:id="wachtwoord2Registratie" layoutX="313.0" layoutY="415.0" promptText="Bevestig Wachtwoord" />
         <Button fx:id="terugButton" layoutX="330.0" layoutY="498.0" mnemonicParsing="false" onAction="#switchScene" text="Terug naar de Chat" />
-        <Text layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select language/Taal Selecteren" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
+        <Text layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instellingen/settings" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
             <font>
                 <Font size="30.0" />
             </font>
         </Text>
 
-        <TextField fx:id="wachtwoordRegistratie" layoutX="314.0" layoutY="378.0" promptText="Huidige Wachtwoord" />
+        <TextField fx:id="wachtwoordRegistratie" layoutX="314.0" layoutY="378.0" promptText="Verander Wachtwoord" />
         <TextField fx:id="emailRegistratie" layoutX="314.0" layoutY="340.0" promptText="Verander Email" />
-        <TextField fx:id="veranderTaal" layoutX="313.0" layoutY="262.0" promptText="Verander Taal" />
     </children>
 </AnchorPane>

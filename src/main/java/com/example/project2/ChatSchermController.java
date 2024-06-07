@@ -2,6 +2,7 @@ package com.example.project2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -10,26 +11,26 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ChatSchermController {
+
     @FXML
     private TabPane tabPane;
-    @FXML
-    private TextField chatNameInput;
     @FXML
     private TextArea chatArea1;
     @FXML
     private TextField chatInput1;
     private Stage stage;
-    private Button instellingenbutton;
     private Parent root;
     private Gebruiker gebruiker;
 
-    private String taal = "Nederlands"; // Default language
+    private String taal = "Nederlands";
 
     private String[] AntwoordenNederlands = {
             "We zijn momenteel offline.",
@@ -49,6 +50,8 @@ public class ChatSchermController {
 
     private Random random = new Random();
 
+    private List<TabData> tabsData = new ArrayList<>();
+
     private String getRandomResponse(String[] responses) {
         int index = random.nextInt(responses.length);
         return responses[index];
@@ -58,11 +61,23 @@ public class ChatSchermController {
         this.gebruiker = gebruiker;
     }
 
+    @FXML
+    public void initialize() {
+        if (!tabsData.isEmpty()) {
+            restoreTabs();
+        }
+    }
+
     public void sendChat1(ActionEvent event) {
-        chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
+        if (gebruiker == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Gebruiker is niet ingesteld.");
+            alert.show();
+            return;
+        }
+        chatArea1.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput1.getText() + "\n");
         chatInput1.clear();
 
-        // AI Response
         String aiResponse;
         if (taal.equals("Nederlands")) {
             aiResponse = getRandomResponse(AntwoordenNederlands);
@@ -77,7 +92,6 @@ public class ChatSchermController {
     }
 
     private void showAddChatDialog() {
-        // Create the dialog
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.setTitle("Nieuwe Chat");
@@ -115,10 +129,9 @@ public class ChatSchermController {
 
         Button sendButton = new Button("Stuur");
         sendButton.setOnAction(e -> {
-            chatArea.appendText("Gebruiker: " + chatInput.getText() + "\n");
+            chatArea.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput.getText() + "\n");
             chatInput.clear();
 
-            // AI Response
             String aiResponse;
             if (taal.equals("Nederlands")) {
                 aiResponse = getRandomResponse(AntwoordenNederlands);
@@ -135,13 +148,12 @@ public class ChatSchermController {
         AnchorPane.setRightAnchor(chatArea, 14.0);
         AnchorPane.setBottomAnchor(chatInput, 14.0);
         AnchorPane.setLeftAnchor(chatInput, 14.0);
-        AnchorPane.setRightAnchor(chatInput, 100.0);  // Adjust to avoid overlapping with sendButton
+        AnchorPane.setRightAnchor(chatInput, 100.0);
         AnchorPane.setBottomAnchor(sendButton, 14.0);
         AnchorPane.setRightAnchor(sendButton, 14.0);
 
         newTab.setContent(content);
 
-        // Add the context menu to the tab
         addContextMenuToTab(newTab);
 
         tabPane.getTabs().add(newTab);
@@ -162,12 +174,10 @@ public class ChatSchermController {
     }
 
     private void showRenameDialog(Tab tab) {
-        // Create the dialog
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.setTitle("Wijzig onderwerp");
 
-        // Create input field
         TextField chatNameField = new TextField(tab.getText());
         chatNameField.setPromptText("Nieuw onderwerp");
 
@@ -185,7 +195,65 @@ public class ChatSchermController {
         dialog.showAndWait();
     }
 
+    private void saveTabs() {
+        tabsData.clear();
+        for (Tab tab : tabPane.getTabs()) {
+            AnchorPane content = (AnchorPane) tab.getContent();
+            TextArea chatArea = (TextArea) content.lookup(".text-area");
+            TextField chatInput = (TextField) content.lookup(".text-field");
+            String chatContent = chatArea.getText();
+            String chatInputText = chatInput.getText();
+            tabsData.add(new TabData(tab.getText(), chatContent, chatInputText));
+        }
+    }
+
+    private void restoreTabs() {
+        tabPane.getTabs().clear();
+        for (TabData tabData : tabsData) {
+            Tab newTab = new Tab(tabData.getTabName());
+
+            TextArea chatArea = new TextArea(tabData.getChatAreaText());
+            chatArea.setPrefHeight(400);
+            chatArea.setPrefWidth(650);
+
+            TextField chatInput = new TextField(tabData.getChatInputText());
+            chatInput.setPrefWidth(550);
+
+            Button sendButton = new Button("Stuur");
+            sendButton.setOnAction(e -> {
+                chatArea.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput.getText() + "\n");
+                chatInput.clear();
+
+                String aiResponse;
+                if (taal.equals("Nederlands")) {
+                    aiResponse = getRandomResponse(AntwoordenNederlands);
+                } else {
+                    aiResponse = getRandomResponse(AntwoordenEngels);
+                }
+                chatArea.appendText("AI: " + aiResponse + "\n");
+            });
+
+            AnchorPane content = new AnchorPane();
+            content.getChildren().addAll(chatArea, chatInput, sendButton);
+            AnchorPane.setTopAnchor(chatArea, 14.0);
+            AnchorPane.setLeftAnchor(chatArea, 14.0);
+            AnchorPane.setRightAnchor(chatArea, 14.0);
+            AnchorPane.setBottomAnchor(chatInput, 14.0);
+            AnchorPane.setLeftAnchor(chatInput, 14.0);
+            AnchorPane.setRightAnchor(chatInput, 100.0);
+            AnchorPane.setBottomAnchor(sendButton, 14.0);
+            AnchorPane.setRightAnchor(sendButton, 14.0);
+
+            newTab.setContent(content);
+
+            addContextMenuToTab(newTab);
+
+            tabPane.getTabs().add(newTab);
+        }
+    }
+
     public void switchScene(ActionEvent event) throws IOException {
+        saveTabs();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         root = loader.load();
 
@@ -193,7 +261,7 @@ public class ChatSchermController {
         controller.setGebruiker2(gebruiker);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene((Parent) root));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
