@@ -15,7 +15,7 @@ import javafx.scene.Node;
 import java.io.IOException;
 import java.util.Random;
 
-public class ChatSchermController {
+public class ChatSchermController extends ResponseManager {
     @FXML
     private TabPane tabPane;
     @FXML
@@ -59,6 +59,9 @@ public class ChatSchermController {
     }
 
     public void sendChat1(ActionEvent event) {
+
+        long startTime = System.currentTimeMillis();
+
         chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
         chatInput1.clear();
 
@@ -70,6 +73,11 @@ public class ChatSchermController {
             aiResponse = getRandomResponse(AntwoordenEngels);
         }
         chatArea1.appendText("AI: " + aiResponse + "\n");
+
+        long endTime = System.currentTimeMillis();
+        long responseTime = endTime - startTime;
+
+        notifyObservers(responseTime);
     }
 
     public void addNewTab(ActionEvent event) {
@@ -205,5 +213,12 @@ public class ChatSchermController {
     @FXML
     public void switchLanguageToEnglish() {
         taal = "Engels";
+    }
+
+    @Override
+    protected void notifyObservers(long responseTime) {
+        for (Observer observer : observers) {
+            observer.update(responseTime);
+        }
     }
 }

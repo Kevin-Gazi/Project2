@@ -2,7 +2,7 @@ package com.example.project2;
 
 import java.util.Random;
 
-public class AiComponent implements ISendMessage{
+public class AiComponent implements ISendMessage, Observer {
 
     private String[] AntwoordenNederlands = {
             "We zijn momenteel offline.",
@@ -21,19 +21,41 @@ public class AiComponent implements ISendMessage{
     };
 
     private Random random;
+    private String antwoordNederlands;
+    private String antwoordEngels;
+
 
     public AiComponent() {
         this.random = new Random();
+        generateAntwoordNederlands();
+        generateAntwoordEngels();
     }
 
-    public String getAntwoordNederlands() {
+    private void generateAntwoordNederlands() {
         int index = random.nextInt(AntwoordenNederlands.length);
-        return AntwoordenNederlands[index];
+        antwoordNederlands = AntwoordenNederlands[index];
     }
 
-    public String getAntwoordEngels() {
+    private void generateAntwoordEngels() {
         int index = random.nextInt(AntwoordenEngels.length);
-        return AntwoordenEngels[index];
+        antwoordEngels = AntwoordenEngels[index];
     }
 
+    @Override
+    public String getAntwoordNederlands() {
+        return antwoordNederlands;
+    }
+
+    @Override
+    public String getAntwoordEngels() {
+        return antwoordEngels;
+    }
+
+    @Override
+    public void update(long responseTime) {
+        // Add or subtract a random value to the response time
+        long modifiedResponseTime = responseTime + random.nextInt(1000); // Random value between -500 and 500 milliseconds
+
+        System.out.println("Response time: " + modifiedResponseTime + " ms");
+    }
 }
