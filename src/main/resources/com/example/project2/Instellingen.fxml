@@ -12,16 +12,16 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Instellingen">
     <children>
-      <ImageView fitHeight="602.0" fitWidth="802.0" pickOnBounds="true">
+      <ImageView fitHeight="606.0" fitWidth="810.0" pickOnBounds="true">
          <image>
-            <Image url="@ChatAchtergrond.jpeg" />
+            <Image url="@Instellingen_Achtergrond.jpg" />
          </image>
       </ImageView>
         <Button fx:id="opslaanButton" layoutX="359.0" layoutY="453.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
         <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Verander Naam" />
         <TextField fx:id="wachtwoordRegistratie" layoutX="313.0" layoutY="415.0" promptText="Verander Wachtwoord" />
         <Button fx:id="terugButton" layoutX="330.0" layoutY="498.0" mnemonicParsing="false" onAction="#switchScene" text="Terug naar de Chat" />
-      <Text layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select language/Taal Selecteren" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
+      <Text fill="WHITE" layoutX="163.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select language/Taal Selecteren" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="474.5312805175781">
          <font>
             <Font size="30.0" />
          </font>
