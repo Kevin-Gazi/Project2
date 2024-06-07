@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="bro stfu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/TabData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_14_13_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-5-2024_14_13__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2024_12_51__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_08_52_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31-5-2024_08_52__Changes_.xml" beforeDir="false" />
+    <list default="true" id="98263704-4df8-47e5-b02f-c55516887e92" name="Changes" comment="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/ChatSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Gebruiker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project2/Instellingen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/project2/Instellingen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716804367187</updated>
       <workItem from="1716804368181" duration="323000" />
-      <workItem from="1717745176943" duration="4944000" />
+      <workItem from="1717745176943" duration="6020000" />
     </task>
     <task id="LOCAL-00001" summary="AiChat">
       <option name="closed" value="true" />
@@ -171,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717677896423</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)">
+      <option name="closed" value="true" />
+      <created>1717750230568</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717750230568</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +188,7 @@
     <MESSAGE value="AiChat" />
     <MESSAGE value="chat scherm" />
     <MESSAGE value="bro stfu" />
-    <option name="LAST_COMMIT_MESSAGE" value="bro stfu" />
+    <MESSAGE value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)" />
+    <option name="LAST_COMMIT_MESSAGE" value="instellingen kan meerdere keren worden veranderd (chat reset wel als je terug gaat van instellingen)" />
   </component>
 </project>
