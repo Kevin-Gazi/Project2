@@ -16,5 +16,6 @@ public class AiChat implements Observer {
         long modifiedResponseTime = responseTime + random.nextInt(1000); // Random value between -500 and 500 milliseconds
 
         System.out.println("Response time: " + modifiedResponseTime + " ms");
+
     }
 }

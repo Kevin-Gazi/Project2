@@ -30,22 +30,8 @@ public class ChatSchermController extends ResponseManager {
     private Gebruiker gebruiker;
 
     private String taal = "Nederlands"; // Default language
+private ISendMessage antwoordGenerator = new AiComponent();
 
-    private String[] AntwoordenNederlands = {
-            "We zijn momenteel offline.",
-            "Sorry, ik kan nu niet antwoorden.",
-            "De service is momenteel niet beschikbaar.",
-            "We zijn momenteel bezig met onderhoud.",
-            "Ik ben momenteel niet bereikbaar."
-    };
-
-    private String[] AntwoordenEngels = {
-            "We are currently offline.",
-            "Sorry, I can't respond right now.",
-            "The service is currently unavailable.",
-            "We are currently undergoing maintenance.",
-            "I am currently not reachable."
-    };
 
     private Random random = new Random();
 
@@ -68,9 +54,9 @@ public class ChatSchermController extends ResponseManager {
         // AI Response
         String aiResponse;
         if (taal.equals("Nederlands")) {
-            aiResponse = getRandomResponse(AntwoordenNederlands);
+            aiResponse = antwoordGenerator.getAntwoordNederlands();
         } else {
-            aiResponse = getRandomResponse(AntwoordenEngels);
+            aiResponse = antwoordGenerator.getAntwoordEngels();
         }
         chatArea1.appendText("AI: " + aiResponse + "\n");
 
@@ -129,9 +115,9 @@ public class ChatSchermController extends ResponseManager {
             // AI Response
             String aiResponse;
             if (taal.equals("Nederlands")) {
-                aiResponse = getRandomResponse(AntwoordenNederlands);
+                aiResponse = antwoordGenerator.getAntwoordNederlands();
             } else {
-                aiResponse = getRandomResponse(AntwoordenEngels);
+                aiResponse = antwoordGenerator.getAntwoordEngels();
             }
             chatArea.appendText("AI: " + aiResponse + "\n");
         });
