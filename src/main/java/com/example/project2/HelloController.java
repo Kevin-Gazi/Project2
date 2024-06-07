@@ -38,7 +38,7 @@ public class HelloController {
         Parent root = loader.load();
 
         ChatSchermController controller = loader.getController();
-        //controller.setGebruiker(gebruiker); // De gebruiker instellen
+        controller.setGebruiker(gebruiker);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
