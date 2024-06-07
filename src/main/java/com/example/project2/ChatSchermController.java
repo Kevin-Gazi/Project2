@@ -13,8 +13,9 @@ import javafx.geometry.Insets;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import java.io.IOException;
+import java.util.Random;
 
-public class ChatSchermController {
+public class ChatSchermController extends ResponseManager {
     @FXML
     private TabPane tabPane;
     @FXML
@@ -30,24 +31,53 @@ public class ChatSchermController {
 
     private String taal = "Nederlands"; // Default language
 
-    private ISendMessage antwoordGenerator = new AiComponent();
+    private String[] AntwoordenNederlands = {
+            "We zijn momenteel offline.",
+            "Sorry, ik kan nu niet antwoorden.",
+            "De service is momenteel niet beschikbaar.",
+            "We zijn momenteel bezig met onderhoud.",
+            "Ik ben momenteel niet bereikbaar."
+    };
+
+    private String[] AntwoordenEngels = {
+            "We are currently offline.",
+            "Sorry, I can't respond right now.",
+            "The service is currently unavailable.",
+            "We are currently undergoing maintenance.",
+            "I am currently not reachable."
+    };
+
+    private Random random = new Random();
+
+    private String getRandomResponse(String[] responses) {
+        int index = random.nextInt(responses.length);
+        return responses[index];
+    }
 
     public void setGebruiker(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
     }
 
     public void sendChat1(ActionEvent event) {
+
+        long startTime = System.currentTimeMillis();
+
         chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
         chatInput1.clear();
 
         // AI Response
         String aiResponse;
         if (taal.equals("Nederlands")) {
-            aiResponse = antwoordGenerator.getAntwoordNederlands();
+            aiResponse = getRandomResponse(AntwoordenNederlands);
         } else {
-            aiResponse = antwoordGenerator.getAntwoordEngels();
+            aiResponse = getRandomResponse(AntwoordenEngels);
         }
         chatArea1.appendText("AI: " + aiResponse + "\n");
+
+        long endTime = System.currentTimeMillis();
+        long responseTime = endTime - startTime;
+
+        notifyObservers(responseTime);
     }
 
     public void addNewTab(ActionEvent event) {
@@ -99,9 +129,9 @@ public class ChatSchermController {
             // AI Response
             String aiResponse;
             if (taal.equals("Nederlands")) {
-                aiResponse = antwoordGenerator.getAntwoordNederlands();
+                aiResponse = getRandomResponse(AntwoordenNederlands);
             } else {
-                aiResponse = antwoordGenerator.getAntwoordEngels();
+                aiResponse = getRandomResponse(AntwoordenEngels);
             }
             chatArea.appendText("AI: " + aiResponse + "\n");
         });
@@ -183,5 +213,12 @@ public class ChatSchermController {
     @FXML
     public void switchLanguageToEnglish() {
         taal = "Engels";
+    }
+
+    @Override
+    protected void notifyObservers(long responseTime) {
+        for (Observer observer : observers) {
+            observer.update(responseTime);
+        }
     }
 }
