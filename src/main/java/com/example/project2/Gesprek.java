@@ -19,6 +19,7 @@ public class Gesprek {
     private AiComponent aiComponent;
     Scanner scanner = new Scanner(System.in);
 
+    /*
     public void nieuweGesprek(){
         System.out.println("Wat is het onderwerp van het gesprek?");
         onderwerp = scanner.nextLine();
@@ -26,6 +27,8 @@ public class Gesprek {
         Vragen vragen = new Vragen(aiComponent);
         vragen.vragenStellen();
     }
+
+     */
 
     public void ChatNaarInstellingen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));

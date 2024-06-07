@@ -3,11 +3,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.RegistratieController">
     <children>
 
+      <ImageView fitHeight="603.0" fitWidth="808.0" pickOnBounds="true">
+         <image>
+            <Image url="@Instellingen_Achtergrond.jpg" />
+         </image>
+      </ImageView>
       <TextField fx:id="standaardtaalRegistratie" layoutX="313.0" layoutY="396.0" promptText="Standaardtaal" />
         <Button fx:id="registratieButton" layoutX="350.0" layoutY="454.0" mnemonicParsing="false" onAction="#Registreren" text="Registreren" />
         <TextField fx:id="gebruikersnaamRegistratie" layoutX="313.0" layoutY="300.0" promptText="Gebruikersnaam" />

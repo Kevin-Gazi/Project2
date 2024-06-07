@@ -5,14 +5,21 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.ChatSchermController">
     <children>
+      <ImageView fitHeight="564.0" fitWidth="728.0" pickOnBounds="true">
+         <image>
+            <Image url="@ChatAchtergrond.jpeg" />
+         </image>
+      </ImageView>
         <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#addNewTab" prefHeight="35.0" prefWidth="102.0" text="Nieuwe Chat" />
         <Button fx:id="instellingenButton" layoutX="582.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="35.0" prefWidth="108.0" text="Instellingen" />
-        <Button layoutX="120.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchLanguageToDutch" text="Nederlands" />
-        <Button layoutX="230.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchLanguageToEnglish" text="Engels" />
+        <Button layoutX="145.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchLanguageToDutch" text="Nederlands" />
+        <Button layoutX="247.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchLanguageToEnglish" prefHeight="26.0" prefWidth="80.0" text="Engels" />
         <TabPane fx:id="tabPane" layoutX="14.0" layoutY="50.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
             <tabs>
                 <Tab text="Chat 1">

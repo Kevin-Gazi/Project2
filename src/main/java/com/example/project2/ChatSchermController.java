@@ -18,19 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ChatSchermController {
-
+public class ChatSchermController extends ResponseManager {
     @FXML
     private TabPane tabPane;
+    @FXML
+    private TextField chatNameInput;
     @FXML
     private TextArea chatArea1;
     @FXML
     private TextField chatInput1;
     private Stage stage;
+    private Button instellingenbutton;
     private Parent root;
     private Gebruiker gebruiker;
 
     private String taal = "Nederlands";
+    private String taal = "Nederlands"; // Default language
+private ISendMessage antwoordGenerator = new AiComponent();
 
     private String[] AntwoordenNederlands = {
             "We zijn momenteel offline.",
@@ -69,6 +73,10 @@ public class ChatSchermController {
     }
 
     public void sendChat1(ActionEvent event) {
+
+        long startTime = System.currentTimeMillis();
+
+        chatArea1.appendText("Gebruiker: " + chatInput1.getText() + "\n");
         if (gebruiker == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Gebruiker is niet ingesteld.");
@@ -78,13 +86,19 @@ public class ChatSchermController {
         chatArea1.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput1.getText() + "\n");
         chatInput1.clear();
 
+        // AI Response
         String aiResponse;
         if (taal.equals("Nederlands")) {
-            aiResponse = getRandomResponse(AntwoordenNederlands);
+            aiResponse = antwoordGenerator.getAntwoordNederlands();
         } else {
-            aiResponse = getRandomResponse(AntwoordenEngels);
+            aiResponse = antwoordGenerator.getAntwoordEngels();
         }
         chatArea1.appendText("AI: " + aiResponse + "\n");
+
+        long endTime = System.currentTimeMillis();
+        long responseTime = endTime - startTime;
+
+        notifyObservers(responseTime);
     }
 
     public void addNewTab(ActionEvent event) {
@@ -132,11 +146,12 @@ public class ChatSchermController {
             chatArea.appendText(gebruiker.getGebruikersnaam() + ": " + chatInput.getText() + "\n");
             chatInput.clear();
 
+            // AI Response
             String aiResponse;
             if (taal.equals("Nederlands")) {
-                aiResponse = getRandomResponse(AntwoordenNederlands);
+                aiResponse = antwoordGenerator.getAntwoordNederlands();
             } else {
-                aiResponse = getRandomResponse(AntwoordenEngels);
+                aiResponse = antwoordGenerator.getAntwoordEngels();
             }
             chatArea.appendText("AI: " + aiResponse + "\n");
         });
@@ -154,6 +169,7 @@ public class ChatSchermController {
 
         newTab.setContent(content);
 
+        // Add the context menu to the tab
         addContextMenuToTab(newTab);
 
         tabPane.getTabs().add(newTab);
@@ -174,10 +190,12 @@ public class ChatSchermController {
     }
 
     private void showRenameDialog(Tab tab) {
+        // Create the dialog
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.setTitle("Wijzig onderwerp");
 
+        // Create input field
         TextField chatNameField = new TextField(tab.getText());
         chatNameField.setPromptText("Nieuw onderwerp");
 
@@ -273,5 +291,12 @@ public class ChatSchermController {
     @FXML
     public void switchLanguageToEnglish() {
         taal = "Engels";
+    }
+
+    @Override
+    protected void notifyObservers(long responseTime) {
+        for (Observer observer : observers) {
+            observer.update(responseTime);
+        }
     }
 }

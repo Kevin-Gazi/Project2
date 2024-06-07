@@ -14,7 +14,7 @@ public class Vragen {
         this.scanner = new Scanner(System.in);
     }
 
-
+/*
     public void vragenStellen() {
 
         System.out.println("Nederlands of engels?");
@@ -33,6 +33,6 @@ public class Vragen {
                 System.out.println("Antwoord: " + EnAntwoord);
             }
         }
-
-    }
+   }
+ */
 }

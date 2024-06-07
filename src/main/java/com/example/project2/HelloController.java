@@ -40,6 +40,13 @@ public class HelloController {
         ChatSchermController controller = loader.getController();
         controller.setGebruiker(gebruiker);
 
+        AiChat aichat = new AiChat();
+        AiComponent aicomponent = new AiComponent();
+
+        // Add observers to the controller
+        controller.addObserver(aichat);
+        controller.addObserver(aicomponent);
+
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
