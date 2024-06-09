@@ -21,40 +21,35 @@ public class AiComponent implements ISendMessage, Observer {
     };
 
     private Random random;
-    private String antwoordNederlands;
-    private String antwoordEngels;
-
 
     public AiComponent() {
         this.random = new Random();
-        generateAntwoordNederlands();
-        generateAntwoordEngels();
     }
 
-    private void generateAntwoordNederlands() {
+    private String generateAntwoordNederlands() {
         int index = random.nextInt(AntwoordenNederlands.length);
-        antwoordNederlands = AntwoordenNederlands[index];
+        return AntwoordenNederlands[index];
     }
 
-    private void generateAntwoordEngels() {
+    private String generateAntwoordEngels() {
         int index = random.nextInt(AntwoordenEngels.length);
-        antwoordEngels = AntwoordenEngels[index];
+        return AntwoordenEngels[index];
     }
 
     @Override
     public String getAntwoordNederlands() {
-        return antwoordNederlands;
+        return generateAntwoordNederlands();
     }
 
     @Override
     public String getAntwoordEngels() {
-        return antwoordEngels;
+        return generateAntwoordEngels();
     }
 
     @Override
     public void update(long responseTime) {
         // Add or subtract a random value to the response time
-        long modifiedResponseTime = responseTime + random.nextInt(1000); // Random value between -500 and 500 milliseconds
+        long modifiedResponseTime = responseTime + random.nextInt(1000) - 500; // Random value between -500 and 500 milliseconds
 
         System.out.println("Response time: " + modifiedResponseTime + " ms");
     }
